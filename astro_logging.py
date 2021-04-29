@@ -1,10 +1,16 @@
 import db_connection
 
-db_file = r"C:\Users\minhd\PycharmProjects\Assignment3\db"
+db_file = r"db"
 
-db_connection.create_connection(db_file)
+conn = db_connection.create_connection(db_file)
 
 
 def logging():
     while True:
-        None
+        option = input("What do you want to do?\n\tA. Create new log\n\tB. View previous log?").lower().strip()
+        if option in ['a', 'b']:
+            break
+        else:
+            print("Invalid option")
+            continue
+

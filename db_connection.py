@@ -15,3 +15,26 @@ def create_connection(db_file):
         print(e)
 
     return conn
+
+
+def insert_log(conn, message):
+    """
+    Create a new task
+    :param conn:
+    :param message:
+    :return:
+    """
+
+    sql = ''' INSERT INTO log(astronaut_name, content) VALUES (?,?)'''
+    cur = conn.cursor()
+    cur.execute(sql, message)
+    conn.commit()
+    return cur.lastrowid
+
+
+def new_log(conn):
+    astronaut_name = input("Who is making this log? ")
+    content = input("What is the content? ")
+    log_message = (astronaut_name, content)
+    row_id = insert_log(conn, log_message)
+    print(row_id)
