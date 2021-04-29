@@ -1,11 +1,10 @@
 import status
 import astro_logging
-import trivia
+import astro_trivia
 
 
 def op_a():
-    i = astro_logging.logging()
-    return i()
+    astro_logging.logging()
 
 
 def op_b():
@@ -14,7 +13,7 @@ def op_b():
 
 
 def op_c():
-    i = trivia.get_questions()
+    i = astro_trivia.get_questions()
     return i()
 
 
@@ -38,6 +37,7 @@ def get_options():
     def execute(args):
         func = option_dict.get(args, 'null')
         return func()
+
     execute(option)
 
 

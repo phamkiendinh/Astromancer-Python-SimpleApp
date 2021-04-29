@@ -14,3 +14,20 @@ def logging():
             print("Invalid option")
             continue
 
+    def op_a():
+        print("The log number is {}".format(db_connection.new_log(conn)))
+
+    def op_b():
+        db_connection.get_log(conn)
+
+    option_dict = {'a': op_a, 'b': op_b}
+
+    def execute(args):
+        func = option_dict.get(args, 'null')
+        return func()
+
+    execute(option)
+
+
+if __name__ == '__main__':
+    logging()
